@@ -1,0 +1,115 @@
+#downarrow{
+	width:5%;
+	height:3.5%;
+	left:47.5%;
+	bottom:1%;
+	position:absolute;
+}
+#downarrow:hover{
+	cursor: pointer;
+	opacity: 0.6;
+}
+hr{
+	height: 4px;
+	width: 90px;
+	background-color: #C0392B;
+	margin: 2.75em auto 3.25em;
+	border: 0 none;
+}
+p{
+	font-size: 200%;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+section{
+	position:relative;
+	
+}
+
+
+.arrow_box {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-top-color: #88b7d5;
+	border-width: 30px;
+	margin-left: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-top-color: #c2e1f5;
+	border-width: 36px;
+	margin-left: -36px;
+}
+#awairarrow{
+	text-align:center;
+	width:20%;
+}
+#awairarrow:hover{
+	cursor: pointer;
+	opacity: 0.7;
+}
+.awairinfo{
+	display: inline-block;
+	height: 100%;
+	width:25%;
+	background-color: #fff;
+	position: relative;
+	border:1px solid transparent;
+	font-family: 'Hammersmith One', sans-serif;
+}
+ul{
+	list-style-type: none;
+}
+.circle {
+	position: relative;
+	width: 128px;
+	height: 128px;
+	top: 2%;
+	margin: 0 auto;
+	padding-top: 28px;
+	border-radius: 128px;
+	background-color: #FFF;
+	
+}
+.popup-minimal {
+	-webkit-animation: popup .4s ease-out 0s 1 forwards;
+	animation: popup .4s ease-out 0s 1 forwards;
+}
+.tricontent{
+	top:15%;
+	padding-top: 10%;
+	border-top: 1px solid #B5B3B3;
+	background-color:#fff;
+	height:60%;
+	width:100%;
+	position:relative;
+	text-align:center;
+}
+#circle1{
+	background: url('../images/health.png') center no-repeat;
+	background-size: cover;
+}
+#circle2{
+	background: url('../images/awair.png') center no-repeat;
+	background-size: cover;
+}
+#circle3{
+	background: url('../images/notification.png') center no-repeat;
+	background-size: cover;
+}

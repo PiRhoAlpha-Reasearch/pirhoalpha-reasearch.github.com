@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta property="og:url" content="https://www.ubiplug.com/awair/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Awair" />
+	<meta property="og:image" content="https://www.ubiplug.com/awair/images/mockups/1.png" />
+	<meta property="og:description" content="Real time air quality monitoring system. A beautiful way to take care of yourself" />
+	<meta charset="UTF-8">
+	<meta name="keywords" content="air quality,air pollution,awair,ubiplug,pirhoalpha,awair app">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="css/home.css" />
+	<link type="text/css" rel="stylesheet" href="css/particle/component.css" />
+	<link type="text/css" rel="stylesheet" href="css/particle/default.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="css/map.css">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
+	<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/share.min.js"></script>
+	<script src="js/gmap3.js" type="text/javascript"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwxY8bCKe_9dHrB3wEIFDBV7DfqBZJvME&sensor=true"></script>
+	<script type="text/javascript" src="js/gmaps.js"></script>
+	<title>Awair</title>
+</head>
+<body style="width:100%;height:1000px;">
+	<script>
+	$(document).ready(function(){
+		var markers = [];
+		$.ajax({
+			url:'http://www.ubiplug.com:8080/ubiair/get/map/data/',
+			method:'GET',
+			dataType:'json',
+			success:function(response){
+				console.log(response);
+				for(var i=0;i<response.lat.length;i++){
+					markers.push({lat:response.lat[i],lng:response.lng[i]});
+				}
+				console.log(markers[5]);
+				$("#map").gmap3({
+				  map:{
+				    options: {
+				      center:[15.416783,73.8910035],
+				      zoom: 3
+				      
+				    }
+				  },
+				  marker: {
+				    values:markers,
+				    options: {
+				      icon: new google.maps.MarkerImage("http://maps.gstatic.com/mapfiles/icon_green.png")
+				    }
+
+				  }
+				});
+			}
+		});
+	});
+	</script>
+	<div id="map" style="width:100%;height:100%;"></div>
+</body>
+</html>
